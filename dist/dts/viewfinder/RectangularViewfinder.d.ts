@@ -1,0 +1,36 @@
+import { SizeWithUnitAndAspect, Color, SizeWithUnit, NumberWithUnit } from "../common";
+import { DefaultSerializeable } from "../serializable";
+import { RectangularViewfinderAnimation } from "./RectangularViewfinderAnimation";
+import { Viewfinder } from "./Viewfinder";
+import { RectangularViewfinderStyle } from "./RectangularViewfinderStyle";
+import { RectangularViewfinderLineStyle } from "./RectangularViewfinderLineStyle";
+export declare class RectangularViewfinder extends DefaultSerializeable implements Viewfinder {
+    private type;
+    private readonly _style;
+    private readonly _lineStyle;
+    private _dimming;
+    private _disabledDimming;
+    private _animation;
+    private _sizeWithUnitAndAspect;
+    private _disabledColor;
+    color: Color;
+    get sizeWithUnitAndAspect(): SizeWithUnitAndAspect;
+    private get coreDefaults();
+    constructor();
+    constructor(style: RectangularViewfinderStyle);
+    constructor(style: RectangularViewfinderStyle, lineStyle: RectangularViewfinderLineStyle);
+    get style(): RectangularViewfinderStyle;
+    get lineStyle(): RectangularViewfinderLineStyle;
+    get dimming(): number;
+    set dimming(value: number);
+    get disabledDimming(): number;
+    set disabledDimming(value: number);
+    get animation(): RectangularViewfinderAnimation | null;
+    set animation(animation: RectangularViewfinderAnimation | null);
+    setSize(size: SizeWithUnit): void;
+    setWidthAndAspectRatio(width: NumberWithUnit, heightToWidthAspectRatio: number): void;
+    setHeightAndAspectRatio(height: NumberWithUnit, widthToHeightAspectRatio: number): void;
+    setShorterDimensionAndAspectRatio(fraction: number, aspectRatio: number): void;
+    get disabledColor(): Color;
+    set disabledColor(value: Color);
+}

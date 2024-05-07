@@ -1,0 +1,24 @@
+{
+  "name": "scandit-datacapture-frameworks-core",
+  "version": "6.24.0-beta.2",
+  "description": "Core common package",
+  "author": {
+    "name": "Scandit",
+    "email": "support@scandit.com"
+  },
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "types": "dist/dts/index.d.ts",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "rollup -c rollup.config.js --bundleConfigAsCjs",
+    "clean": "rimraf .rollup.cache dist",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "eventemitter3": "5.0.1"
+  },
+  "bundledDependencies": [
+    "eventemitter3"
+  ]
+}
